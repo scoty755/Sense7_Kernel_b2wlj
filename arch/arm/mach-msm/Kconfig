@@ -3109,6 +3109,18 @@ config PROJECT_NAME
         help
           Support for Project Name
 
+config MACH_B2_WLJ
+        depends on ARCH_MSM8974
+        bool "MSM8974 B2_WLJ"
+        help
+          Support for HTC MSM8974 B2_WLJ
+
+config MACH_B2_UL
+        depends on ARCH_MSM8974
+        bool "MSM8974 B2_UL"
+        help
+          Support for HTC MSM8974 B2_UL
+
 endif
 
 config PERFLOCK
