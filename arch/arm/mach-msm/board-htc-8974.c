@@ -503,7 +503,7 @@ static void htc_8974_add_usb_devices(void)
 
 	platform_device_register(&android_usb_device);
 }
-#if (defined(CONFIG_MACH_DUMMY) || defined(CONFIG_MACH_DUMMY))
+#ifdef CONFIG_MACH_DUMMY
 static ssize_t syn_vkeys_show(struct kobject *kobj,
 			struct kobj_attribute *attr, char *buf)
 {
@@ -586,7 +586,7 @@ static int critical_alarm_voltage_mv[] = {3000, 3200, 3400};
 
 static struct htc_battery_platform_data htc_battery_pdev_data = {
 	.guage_driver = 0,
-#if defined(CONFIG_MACH_DUMMY) || defined(CONFIG_MACH_B2_WLJ)
+#ifdef CONFIG_MACH_B2_WLJ
 	.chg_limit_active_mask = HTC_BATT_CHG_LIMIT_BIT_TALK |
 								HTC_BATT_CHG_LIMIT_BIT_NAVI |
 								HTC_BATT_CHG_LIMIT_BIT_KDDI |
@@ -607,7 +607,7 @@ static struct htc_battery_platform_data htc_battery_pdev_data = {
 	.smooth_chg_full_delay_min = 3,
 	.decreased_batt_level_check = 1,
 	.force_shutdown_batt_vol = 3000,
-#if defined(CONFIG_MACH_DUMMY) || defined(CONFIG_MACH_B2_WLJ)
+#ifdef CONFIG_MACH_B2_WLJ
 	.usb_temp_monitor_enable = 1,
 	.usb_temp_overheat_increase_threshold = 25, 
 	.normal_usb_temp_threshold = 450, 
@@ -654,7 +654,7 @@ static struct htc_battery_platform_data htc_battery_pdev_data = {
 	.igauge.get_battery_id_mv = pm8941_get_batt_id_mv,
 	.igauge.get_battery_soc = pm8941_bms_get_batt_soc,
 	.igauge.get_battery_cc = pm8941_bms_get_batt_cc,
-#if defined(CONFIG_MACH_DUMMY) || defined(CONFIG_MACH_B2_WLJ)
+#ifdef CONFIG_MACH_B2_WLJ
 	.igauge.get_usb_temperature = pm8941_get_usb_temperature,
 	.igauge.usb_overheat_otg_mode_check = pm8941_usb_overheat_otg_mode_check,
 #endif
@@ -717,7 +717,7 @@ void __init htc_8974_add_drivers(void)
 	htc_batt_cell_register();
 	msm8974_add_batt_devices();
 #endif 
-#if (defined(CONFIG_MACH_DUMMY) || defined(CONFIG_MACH_DUMMY))
+#ifdef CONFIG_MACH_DUMMY
 	syn_init_vkeys_8974();
 #endif
 	htc_8974_cable_detect_register();
