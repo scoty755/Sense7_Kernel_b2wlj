@@ -3170,6 +3170,12 @@ config MACH_M8
         bool "MSM8974 M8"
         help
           Support for HTC MSM8974 M8
+          
+config MACH_B2_WLJ
+        depends on ARCH_MSM8974
+        bool "MSM8974 B2_WLJ"
+        help
+          Support for HTC MSM8974 B2_WLJ
 
 config PROJECT_NAME
         string "Project Name"
